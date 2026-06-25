@@ -1,0 +1,17 @@
+# This YAML is intentionally not listed in board_amend.yaml's apply: list.
+# It must be ignored (no peripherals / devices added) to prove that amend
+# applies files only when they are explicitly listed in the manifest — no
+# file is auto-discovered, not even from a sibling that *is* referenced.
+version: 1.0.0
+peripherals:
+  - name: gpio_unused_should_be_ignored
+    type: gpio
+    version: default
+    role: io
+    config:
+      pin: 99
+      mode: GPIO_MODE_OUTPUT
+      pull_up: false
+      pull_down: false
+      intr_type: GPIO_INTR_DISABLE
+      default_level: 0

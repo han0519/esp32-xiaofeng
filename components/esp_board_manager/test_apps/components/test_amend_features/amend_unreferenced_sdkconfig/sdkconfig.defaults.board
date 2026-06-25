@@ -1,0 +1,2 @@
+# Intentionally not referenced from board_amend.yaml — must NOT be applied.
+CONFIG_BMGR_TEST_AMEND_UNREFERENCED_TRIPWIRE=y

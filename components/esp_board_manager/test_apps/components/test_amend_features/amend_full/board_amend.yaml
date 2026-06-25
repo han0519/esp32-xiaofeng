@@ -1,0 +1,25 @@
+version: "1.0"
+description: "Full feature coverage for amend: yaml / source / sdkconfig / kconfig / ../ items"
+
+# Every fragment must be listed explicitly. There is no auto-discovery — even
+# the amend-root sdkconfig.defaults.board and Kconfig.projbuild need to appear
+# in apply: here. Order matters for sdkconfig defaults (later entries override
+# earlier same-CONFIG_* entries via the BMGR_CONFIG_OVERRIDE marker).
+apply:
+  - new_led.yaml
+  - base_led_tweak.yaml
+  - strong_setup.c
+
+  # Pack subdirectory: each contained file is referenced one by one.
+  - pack/pack_extra.yaml
+  - pack/pack_setup.c
+  - pack/sdkconfig.defaults.board
+  - pack/Kconfig.projbuild
+
+  # Out-of-tree fragments via ../ work just like any other path.
+  - ../../test_amend_features_extra/common_extra.yaml
+  - ../../test_amend_features_extra/common_setup.c
+
+  # Amend-root sdkconfig / Kconfig: highest priority is "last in apply".
+  - sdkconfig.defaults.board
+  - Kconfig.projbuild

@@ -1,0 +1,13 @@
+version: 1.0.0
+peripherals:
+  - name: gpio_common_extra
+    type: gpio
+    version: default
+    role: io
+    config:
+      pin: 8
+      mode: GPIO_MODE_OUTPUT
+      pull_up: false
+      pull_down: false
+      intr_type: GPIO_INTR_DISABLE
+      default_level: 0

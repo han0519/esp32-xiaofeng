@@ -1,0 +1,8 @@
+version: "1.0"
+description: >-
+  Drops a sdkconfig.defaults.board next to board_amend.yaml without listing it
+  in apply:. The generator should emit an info log explaining the file is
+  ignored, and the CONFIG_* defined in it must NOT reach board_manager.defaults.
+
+apply:
+  - tweak.yaml

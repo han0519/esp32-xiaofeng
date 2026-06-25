@@ -1,0 +1,4 @@
+version: 1.0.0
+# Intentionally lacking both 'devices' and 'peripherals' top-level keys.
+not_devices_or_peripherals:
+  - foo: bar

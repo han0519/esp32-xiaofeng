@@ -1,0 +1,5 @@
+board: test_amend_features
+chip: esp32c3
+version: 1.0.0
+description: "Fixture board for testing -a/--amend manifest behaviour"
+manufacturer: "ESPRESSIF"

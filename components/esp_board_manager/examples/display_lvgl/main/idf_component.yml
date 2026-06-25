@@ -1,0 +1,5 @@
+dependencies:
+  esp_board_manager:
+    path: ../../../
+  espressif/esp_lvgl_adapter: '*'
+  espressif/esp_lcd_touch: ^1.1.2

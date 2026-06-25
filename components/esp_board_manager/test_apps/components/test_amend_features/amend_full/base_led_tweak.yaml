@@ -1,0 +1,12 @@
+version: 1.0.0
+peripherals:
+  - name: gpio_status_led
+    config:
+      pin: 6
+      default_level: 1
+
+devices:
+  - name: status_led_power
+    peripherals:
+      - name: gpio_status_led
+        active_level: 0

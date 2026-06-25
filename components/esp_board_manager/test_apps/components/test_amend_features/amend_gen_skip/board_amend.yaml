@@ -1,0 +1,8 @@
+version: "1.0"
+description: >-
+  Verify that gen_skip set via an amend fragment removes a device that exists
+  on the base board (boot_button) from the generated output. This is the
+  release-note guarantee for "gen_skip in the amend file".
+
+apply:
+  - skip_button.yaml

@@ -1,0 +1,5 @@
+board: esp32_s31_function_coreboard_1
+chip: esp32s31
+version: 1.0.0
+description: "ESP32-S31-Function-Coreboard-1"
+manufacturer: "ESPRESSIF"

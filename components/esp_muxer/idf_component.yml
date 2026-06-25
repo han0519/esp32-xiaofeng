@@ -1,0 +1,12 @@
+description: Espressif Muxer to mux audio and video stream data into container
+issues: https://github.com/espressif/esp-adf/issues
+repository: git://github.com/espressif/esp-adf-libs.git
+repository_info:
+  commit_sha: d0df2170ca293600669d5e6d150566cbcac1f68d
+  path: esp_muxer
+tags:
+- multimedia
+- container
+- muxer
+url: https://github.com/espressif/esp-adf-libs/tree/master/esp_muxer
+version: 1.2.2

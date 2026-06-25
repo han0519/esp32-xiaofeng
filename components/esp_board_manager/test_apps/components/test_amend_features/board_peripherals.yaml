@@ -1,0 +1,24 @@
+version: 1.0.0
+peripherals:
+  - name: gpio_status_led
+    type: gpio
+    version: default
+    role: io
+    config:
+      pin: 2
+      mode: GPIO_MODE_OUTPUT
+      pull_up: false
+      pull_down: false
+      intr_type: GPIO_INTR_DISABLE
+      default_level: 0
+
+  - name: gpio_boot_button
+    type: gpio
+    version: default
+    role: io
+    config:
+      pin: 9
+      mode: GPIO_MODE_INPUT
+      pull_up: true
+      pull_down: false
+      intr_type: GPIO_INTR_DISABLE

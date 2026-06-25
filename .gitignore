@@ -1,0 +1,42 @@
+# ESP-IDF build output
+build/
+
+# Generated sdkconfig (keep defaults only)
+sdkconfig
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# IDE
+.vscode/
+.idea/
+*.code-workspace
+
+# Temp build scripts
+_build*.bat
+_build*.cmd
+_build*.ps1
+_build*.txt
+_do.cmd
+_setup.cmd
+build_and_flash.bat
+build_now.cmd
+
+# Generated font/image C files (keep source PNG/fonts)
+# main/bt_ui/fonts/*.c
+# main/bt_ui/images/*.c
+# main/bt_ui/gallery_images.h
+
+# Binary outputs
+*.bin
+*.elf
+*.map

@@ -1,0 +1,22 @@
+version: 1.0.0
+peripherals:
+  - name: gpio_full_new_led
+    type: gpio
+    version: default
+    role: io
+    config:
+      pin: 5
+      mode: GPIO_MODE_OUTPUT
+      pull_up: false
+      pull_down: false
+      intr_type: GPIO_INTR_DISABLE
+      default_level: 0
+
+devices:
+  - name: full_new_led_power
+    type: power_ctrl
+    sub_type: gpio
+    version: default
+    peripherals:
+      - name: gpio_full_new_led
+        active_level: 1

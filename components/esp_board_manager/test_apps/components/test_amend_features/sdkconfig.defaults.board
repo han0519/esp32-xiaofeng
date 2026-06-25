@@ -1,0 +1,4 @@
+# Base board comments should be preserved verbatim and ignored by CONFIG override detection
+CONFIG_BMGR_TEST_AMEND_BASE_VALUE=1
+CONFIG_BMGR_TEST_AMEND_BASE_ONLY=y
+# CONFIG_BMGR_TEST_AMEND_BASE_UNSET is not set

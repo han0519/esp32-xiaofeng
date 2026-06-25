@@ -1,0 +1,2 @@
+# Codec selection: only ES8311 is on this board
+CONFIG_CODEC_ES8311_SUPPORT=y

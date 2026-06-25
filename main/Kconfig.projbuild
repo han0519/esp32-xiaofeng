@@ -1,0 +1,166 @@
+menu "BT Audio Basic Example (GMF)"
+
+    menu "BT UI Configuration"
+
+        config EXAMPLE_BT_UI_ENABLE
+            bool "Enable LVGL UI"
+            default y if IDF_TARGET_ESP32S31
+            default n
+            help
+                Enable the on-device LVGL touch-screen UI (splash, media control,
+                dialer, volume bar). Requires a board with LCD and touch
+                support (e.g. ESP32-S31 Korvo1), as well as the LVGL, esp_lvgl_port,
+                and esp_jpeg components in the project dependencies.
+
+    endmenu
+
+    config GMF_EXAMPLE_AUDIO_TECH_CLASSIC
+        bool "Enable Classic Bluetooth"
+        depends on BT_CLASSIC_ENABLED
+        default y
+        help
+            Enable classic Bluetooth profile examples (A2DP/HFP/AVRCP/PBAP).
+
+    config GMF_EXAMPLE_AUDIO_TECH_LE
+        bool "Enable LE Audio"
+        depends on BT_NIMBLE_ENABLED && BT_AUDIO && BT_ISO
+        default y
+        help
+            Enable LE Audio unicast server example flow. This option can be
+            enabled together with Classic Bluetooth when the selected BT host
+            and controller configuration support both technologies.
+
+    menu "Classic Audio Roles Configuration"
+        depends on BT_CLASSIC_ENABLED && GMF_EXAMPLE_AUDIO_TECH_CLASSIC
+        default GMF_EXAMPLE_A2DP_SINK
+        choice
+            prompt "A2DP role"
+            depends on BT_A2DP_ENABLE
+
+        config GMF_EXAMPLE_A2DP_SINK
+            bool "A2DP Sink"
+            help
+                Enable A2DP Sink role
+
+        config GMF_EXAMPLE_A2DP_SOURCE
+            bool "A2DP Source"
+            help
+                Enable A2DP Source role
+
+        endchoice
+
+        config GMF_EXAMPLE_HFP_HF
+            depends on BT_HFP_CLIENT_ENABLE && GMF_EXAMPLE_A2DP_SINK
+            bool "HFP Handsfree"
+            default y
+            help
+                Enable HFP Handsfree role
+
+        config GMF_EXAMPLE_AVRC_CT
+            depends on BT_AVRCP_ENABLED
+            bool "AVRC Controller"
+            default y
+            help
+                Enable AVRC Controller role
+
+        config GMF_EXAMPLE_AVRC_TG
+            depends on BT_AVRCP_ENABLED
+            bool "AVRC Target"
+            default y
+            help
+                Enable AVRC Target role
+
+        config GMF_EXAMPLE_PBAP_PCE
+            depends on BT_PBAC_ENABLED && GMF_EXAMPLE_HFP_HF
+            bool "Phone book client equipment"
+            default n
+            help
+                Enable phone book client equipment role
+    endmenu
+
+    menu "LE Audio Configuration"
+        depends on GMF_EXAMPLE_AUDIO_TECH_LE
+
+        choice
+            prompt "LE Audio user case"
+            default GMF_EXAMPLE_LE_USER_CASE_TMAP
+            help
+                Select the LE Audio user case used by the example.
+
+        config GMF_EXAMPLE_LE_USER_CASE_TMAP
+            bool "TMAP"
+            help
+                Enable the Telephony and Media Audio Profile user case.
+
+        endchoice
+
+        config GMF_EXAMPLE_LE_TMAP_ROLE_CT
+            bool "TMAP call terminal role"
+            depends on GMF_EXAMPLE_LE_USER_CASE_TMAP
+            default y
+            help
+                Enable the TMAP Call Terminal role.
+
+        config GMF_EXAMPLE_LE_TMAP_ROLE_UMR
+            bool "TMAP unicast media receiver role"
+            depends on GMF_EXAMPLE_LE_USER_CASE_TMAP
+            default y
+            help
+                Enable the TMAP Unicast Media Receiver role.
+
+        config GMF_EXAMPLE_LE_TMAP_ROLE_BMR
+            bool "TMAP broadcast media receiver role"
+            depends on GMF_EXAMPLE_LE_USER_CASE_TMAP
+            default y
+            help
+                Enable the TMAP Broadcast Media Receiver role.
+
+        choice
+            prompt "LE Audio location"
+            default GMF_EXAMPLE_LE_LOCATION_FRONT_RIGHT
+            help
+                Select the audio location advertised by the LE Audio example.
+
+        config GMF_EXAMPLE_LE_LOCATION_FRONT_LEFT
+            bool "Front left"
+            help
+                Advertise the LE Audio location as front left.
+
+        config GMF_EXAMPLE_LE_LOCATION_FRONT_RIGHT
+            bool "Front right"
+            help
+                Advertise the LE Audio location as front right.
+
+        endchoice
+
+        config GMF_EXAMPLE_LE_SOURCE_ENABLE
+            bool "Enable LE Audio source capability"
+            default y
+            help
+                Enable LE Audio source capability and source ASE count.
+
+        config GMF_EXAMPLE_LE_COORDINATE_SET_SIZE
+            int "LE Audio coordinate set size"
+            default 2
+            range 0 2
+            help
+                Set the CSIP coordinated set size advertised by the LE Audio example.
+
+        config GMF_EXAMPLE_LE_COORDINATE_SET_RANK
+            int
+            default 1 if GMF_EXAMPLE_LE_LOCATION_FRONT_LEFT
+            default 2 if GMF_EXAMPLE_LE_LOCATION_FRONT_RIGHT
+            range 1 2
+            help
+                Set the CSIP rank for this set member based on the advertised location.
+
+        config GMF_EXAMPLE_LE_SCAN_TIMEOUT_MS
+            int "Default LE scan timeout (ms)"
+            default 10000
+            range 1000 60000
+            help
+                Default timeout used by LE scan command.
+
+    endmenu
+
+endmenu

@@ -1,0 +1,6 @@
+version: 1.0.0
+peripherals:
+  - name: gpio_status_led
+    config:
+      pin: 4
+      default_level: 1

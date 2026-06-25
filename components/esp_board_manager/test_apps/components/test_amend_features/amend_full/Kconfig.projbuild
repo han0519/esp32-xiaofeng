@@ -1,0 +1,7 @@
+menu "test_amend_features amend-top configuration"
+
+config BMGR_TEST_AMEND_TOP_KCONFIG
+    bool "Amend-top feature toggle"
+    default n
+
+endmenu

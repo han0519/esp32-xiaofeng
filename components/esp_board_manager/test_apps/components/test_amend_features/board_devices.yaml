@@ -1,0 +1,37 @@
+version: 1.0.0
+devices:
+  - name: status_led_power
+    type: power_ctrl
+    sub_type: gpio
+    version: default
+    peripherals:
+      - name: gpio_status_led
+        active_level: 1
+
+  - name: boot_button
+    type: button
+    sub_type: gpio
+    version: default
+    config:
+      active_level: 0
+      enable_power_save: false
+      disable_pull: false
+      long_press_time: 2000
+      short_press_time: 100
+      events_cfg:
+        press_down: true
+        press_up: true
+        single_click: true
+        double_click: false
+        multi_click: false
+        click_counts: []
+        long_press_start: true
+        long_press_start_time: []
+        long_press_hold: false
+        long_press_up: true
+        long_press_up_time: []
+        press_repeat: false
+        press_repeat_done: false
+        press_end: false
+    peripherals:
+      - name: gpio_boot_button

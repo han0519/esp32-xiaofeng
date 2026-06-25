@@ -1,0 +1,11 @@
+menu "test_amend_features board configuration"
+
+config BMGR_TEST_AMEND_BOARD_KCONFIG
+    bool "Board-local feature toggle for amend fixture"
+    default n
+    help
+        Defined by boards/test_amend_features/Kconfig.projbuild. Used to assert
+        that the base board's Kconfig.projbuild is appended into the generated
+        components/gen_bmgr_codes/Kconfig.projbuild.
+
+endmenu

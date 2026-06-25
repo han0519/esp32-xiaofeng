@@ -1,0 +1,5 @@
+board: esp_vocat_1_0
+chip: esp32s3
+version: 1.0.0
+description: "ESP-VoCat V1.0"
+manufacturer: "ESPRESSIF"

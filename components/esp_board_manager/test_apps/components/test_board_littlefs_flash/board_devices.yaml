@@ -1,0 +1,13 @@
+devices:
+  - name: littlefs
+    type: littlefs
+    sub_type: flash
+    version: default
+    config:
+      vfs_config:
+        base_path: "/littlefs"
+        partition_label: "littlefs"
+        format_if_mount_failed: false
+        read_only: false
+        dont_mount: false
+        grow_on_mount: false

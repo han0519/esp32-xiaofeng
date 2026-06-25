@@ -1,0 +1,7 @@
+version: 1.0.0
+# Mark the base board's `boot_button` device as gen_skip so the device parser
+# drops it during generation. The amend's field-level merge injects
+# `gen_skip: true` onto the base device entry; the parser then skips it.
+devices:
+  - name: boot_button
+    gen_skip: true

@@ -1,0 +1,5 @@
+board: test_board_littlefs_flash
+chip: esp32s3
+version: 1.0.0
+description: "Test board for LittleFS flash backend"
+manufacturer: "ESPRESSIF"

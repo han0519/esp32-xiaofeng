@@ -1,0 +1,7 @@
+menu "pack amend layer"
+
+config BMGR_TEST_AMEND_PACK_KCONFIG
+    bool "Pack-layer Kconfig sentinel"
+    default n
+
+endmenu
